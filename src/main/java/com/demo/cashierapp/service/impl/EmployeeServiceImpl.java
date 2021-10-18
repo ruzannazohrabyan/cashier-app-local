@@ -34,8 +34,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         newEmployee.setLastName(employee.getLastName());
         newEmployee.setUsername(employee.getUsername());
         newEmployee.setPassword(BCrypt.hashpw(employee.getPassword(), salt));
-        final Employee savedEmployee = employeeRepository.save(newEmployee);
-        return savedEmployee;
+        return employeeRepository.save(newEmployee);
+
     }
 
     @Override

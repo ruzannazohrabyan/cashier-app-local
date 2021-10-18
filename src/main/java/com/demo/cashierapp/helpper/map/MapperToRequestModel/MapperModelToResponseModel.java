@@ -7,6 +7,6 @@ import com.demo.cashierapp.service.EmployeeParams;
 
 public interface MapperModelToResponseModel {
 
-    public EmployeeDetailsResponseModel modelToResponse(Employee employee);
+    EmployeeDetailsResponseModel modelToResponse(Employee employee);
 
 }
