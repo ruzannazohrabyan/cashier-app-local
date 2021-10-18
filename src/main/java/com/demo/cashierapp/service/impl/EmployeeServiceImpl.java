@@ -33,7 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         newEmployee.setFirstName(employee.getFirstName());
         newEmployee.setLastName(employee.getLastName());
         newEmployee.setUsername(employee.getUsername());
-        employee.setPassword(BCrypt.hashpw(employee.getPassword(), salt));
+        newEmployee.setPassword(BCrypt.hashpw(employee.getPassword(), salt));
         final Employee savedEmployee = employeeRepository.save(newEmployee);
         return savedEmployee;
     }

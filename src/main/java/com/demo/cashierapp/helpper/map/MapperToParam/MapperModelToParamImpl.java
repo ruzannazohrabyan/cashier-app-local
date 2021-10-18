@@ -11,10 +11,10 @@ import lombok.Setter;
 @Setter
 public class MapperModelToParamImpl implements MapperModelToParam{
 
-    private final EmployeeParams employeeParams;
 
     @Override
     public  EmployeeParams modelToParam(EmployeeCreateRequestModel employeeCreateRequestModel){
+        final EmployeeParams employeeParams = new EmployeeParams();
 
         employeeParams.setFirstName(employeeCreateRequestModel.getFirstName());
         employeeParams.setLastName(employeeCreateRequestModel.getLastName());

@@ -3,9 +3,10 @@ package com.demo.cashierapp.apiService.impl;
 import com.demo.cashierapp.entity.Employee;
 import com.demo.cashierapp.apiService.EmployeeApiService;
 import com.demo.cashierapp.entity.Role;
+import com.demo.cashierapp.helpper.map.MapperToParam.MapperModelToParamImpl;
+import com.demo.cashierapp.helpper.map.MapperToRequestModel.MapperModelToResponseModelImpl;
 import com.demo.cashierapp.model.EmployeeCreateRequestModel;
 import com.demo.cashierapp.model.EmployeeDetailsResponseModel;
-import com.demo.cashierapp.service.EmployeeParams;
 import com.demo.cashierapp.service.EmployeeService;
 import com.demo.cashierapp.service.role.EmployeeRoleService;
 import org.springframework.stereotype.Component;
@@ -22,18 +23,13 @@ public class EmployeeApiServiceImpl implements EmployeeApiService {
 
     @Override
     public EmployeeDetailsResponseModel create(EmployeeCreateRequestModel employeeCreateModel) {
-//        maper.mapToEmployeeParams(employeeCreateModel);
-        final Employee savedEmployee = employeeService.save(new EmployeeParams(
-                employeeCreateModel.getUsername(),
-                employeeCreateModel.getFirstName(),
-                employeeCreateModel.getLastName(),
-                employeeCreateModel.getPassword()
-        ));
 
-        for(Role role : employeeCreateModel.getRoles())  {
+        final Employee savedEmployee = employeeService.save(new MapperModelToParamImpl().modelToParam(employeeCreateModel));
+        for (Role role : employeeCreateModel.getRoles()) {
             employeeRoleService.save(savedEmployee, role);
-        }
 
-        return null;
+
+        }
+        return new MapperModelToResponseModelImpl().modelToResponse(employeeService.getEmployeeByUsername(savedEmployee.getUsername()));
     }
 }
