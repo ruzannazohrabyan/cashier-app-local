@@ -1,4 +1,4 @@
-package com.demo.cashierapp.helpper.map.MapperToParam;
+package com.demo.cashierapp.helper.map.mapperToParam;
 
 import com.demo.cashierapp.model.EmployeeCreateRequestModel;
 import com.demo.cashierapp.service.EmployeeParams;
