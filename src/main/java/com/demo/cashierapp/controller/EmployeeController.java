@@ -1,8 +1,8 @@
 package com.demo.cashierapp.controller;
 
-import com.demo.cashierapp.apiService.EmployeeApiService;
-import com.demo.cashierapp.model.CreateEmployeeRequestModel;
-import com.demo.cashierapp.model.EmployeeDetailsResponseModel;
+import com.demo.cashierapp.apiService.employee.impl.EmployeeApiServiceImpl;
+import com.demo.cashierapp.model.apiService.employee.CreateEmployeeRequestASM;
+import com.demo.cashierapp.model.apiService.employee.CreateEmployeeResponseASM;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/employee")
 @RequiredArgsConstructor
 public class EmployeeController {
-    private final EmployeeApiService employeeApiService;
+    private final EmployeeApiServiceImpl employeeApiService;
 
     @PostMapping
-    public EmployeeDetailsResponseModel save(@RequestBody CreateEmployeeRequestModel employeeModel) {
-        return employeeApiService.create(employeeModel);
+    public CreateEmployeeResponseASM create(@RequestBody CreateEmployeeRequestASM createEmployeeRequestASM) {
+        return employeeApiService.create(createEmployeeRequestASM);
     }
 }

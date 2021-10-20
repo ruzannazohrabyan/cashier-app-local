@@ -3,7 +3,7 @@ package com.demo.cashierapp.apiService.employee;
 import com.demo.cashierapp.model.apiService.employee.*;
 import java.util.List;
 
-public interface EmployeeASM {
+public interface EmployeeApiService {
     CreateEmployeeResponseASM create(CreateEmployeeRequestASM createEmployeeRequestASM);
 
     List<EmployeeDetailsASM> getAll();

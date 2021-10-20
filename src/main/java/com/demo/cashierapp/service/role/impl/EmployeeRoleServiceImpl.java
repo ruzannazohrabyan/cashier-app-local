@@ -31,11 +31,11 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
     }
 
 //    @Override
-//    public EmployeeRole save(Employee employee, RoleSM role) {
+//    public EmployeeRole create(Employee employee, RoleSM role) {
 //        final EmployeeRole employeeRole = new EmployeeRole();
 //        employeeRole.setRole(role);
 //        employeeRole.setEmployee(employee);
-//        final EmployeeRole savedEmployeeRole = employeeRoleRepository.save(employeeRole);
+//        final EmployeeRole savedEmployeeRole = employeeRoleRepository.create(employeeRole);
 //        return savedEmployeeRole;
 //    }
 

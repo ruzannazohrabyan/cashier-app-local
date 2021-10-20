@@ -23,14 +23,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 //
 //    @Override
-//    public CreateEmployeeParamsResponse save(CreateEmployeeParams employee) {
+//    public CreateEmployeeParamsResponse create(CreateEmployeeParams employee) {
 //        final String salt = BCrypt.gensalt(10);
 //        Employee newEmployee = new Employee();
 //        newEmployee.setFirstName(employee.getFirstName());
 //        newEmployee.setLastName(employee.getLastName());
 //        newEmployee.setUsername(employee.getUsername());
 //        newEmployee.setPassword(BCrypt.hashpw(employee.getPassword(), salt));
-//        return employeeRepository.save(newEmployee);
+//        return employeeRepository.create(newEmployee);
 //
 //    }
 

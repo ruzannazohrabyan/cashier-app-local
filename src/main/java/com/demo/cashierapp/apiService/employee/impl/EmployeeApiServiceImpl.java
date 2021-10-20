@@ -1,13 +1,11 @@
 package com.demo.cashierapp.apiService.employee.impl;
 
-import com.demo.cashierapp.apiService.employee.EmployeeASM;
+import com.demo.cashierapp.apiService.employee.EmployeeApiService;
 import com.demo.cashierapp.helper.employee.MapToCreateEmployeeRequestSM;
 import com.demo.cashierapp.helper.employee.MapToCreateEmployeeResponseASM;
-import com.demo.cashierapp.helper.employee.MapToEmployeeRoleASM;
 import com.demo.cashierapp.helper.employee.MapToRoleSM;
 import com.demo.cashierapp.model.apiService.employee.*;
 import com.demo.cashierapp.model.apiService.role.RoleASM;
-import com.demo.cashierapp.model.apiService.employeeRole.EmployeeRoleASM;
 import com.demo.cashierapp.model.service.employee.CreateEmployeeResponseSM;
 import com.demo.cashierapp.model.service.employeeRole.EmployeeRoleSM;
 import com.demo.cashierapp.model.service.role.RoleSM;
@@ -21,7 +19,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class EmployeeASMImpl implements EmployeeASM {
+public class EmployeeApiServiceImpl implements EmployeeApiService {
     private final EmployeeService employeeService;
     private final EmployeeRoleService employeeRoleService;
 
