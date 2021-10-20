@@ -20,7 +20,7 @@ public class MapToEmployeeDetailsSM {
         List<RoleSM> roleSMList = new ArrayList<>();
         for (EmployeeRole employeeRole : employee.getRoles()) {
             Role role = employeeRole.getRole();
-            roleSMList.add(new MapToRoleSM(role));
+            roleSMList.add(new MapToRoleSM().from(role));
         }
     }
 }
