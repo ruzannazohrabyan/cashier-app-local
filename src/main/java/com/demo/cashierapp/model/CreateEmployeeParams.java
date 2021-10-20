@@ -1,4 +1,4 @@
-package com.demo.cashierapp.service;
+package com.demo.cashierapp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class EmployeeParams {
+public class CreateEmployeeParams {
     private String username;
     private String firstName;
     private String lastName;

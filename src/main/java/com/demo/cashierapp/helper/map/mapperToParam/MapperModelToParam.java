@@ -1,9 +1,9 @@
 package com.demo.cashierapp.helper.map.mapperToParam;
 
-import com.demo.cashierapp.model.EmployeeCreateRequestModel;
-import com.demo.cashierapp.service.EmployeeParams;
+import com.demo.cashierapp.model.CreateEmployeeRequestModel;
+import com.demo.cashierapp.model.CreateEmployeeParams;
 
 public interface MapperModelToParam {
 
-    public EmployeeParams modelToParam(EmployeeCreateRequestModel employeeCreateRequestModel);
+    public CreateEmployeeParams modelToParam(CreateEmployeeRequestModel createEmployeeRequestModel);
 }

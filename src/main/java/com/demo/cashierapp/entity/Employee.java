@@ -31,6 +31,6 @@ public class Employee {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany
     private List<EmployeeRole> roles;
 }

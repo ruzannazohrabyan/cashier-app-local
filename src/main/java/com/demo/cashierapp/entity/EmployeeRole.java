@@ -22,6 +22,6 @@ public class EmployeeRole {
     private Role role;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "username")
     private Employee employee;
 }

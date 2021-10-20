@@ -1,7 +1,7 @@
 package com.demo.cashierapp.helper.map.mapperToParam;
 
-import com.demo.cashierapp.model.EmployeeCreateRequestModel;
-import com.demo.cashierapp.service.EmployeeParams;
+import com.demo.cashierapp.model.CreateEmployeeRequestModel;
+import com.demo.cashierapp.model.CreateEmployeeParams;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -13,14 +13,14 @@ public class MapperModelToParamImpl implements MapperModelToParam{
 
 
     @Override
-    public  EmployeeParams modelToParam(EmployeeCreateRequestModel employeeCreateRequestModel){
-        final EmployeeParams employeeParams = new EmployeeParams();
+    public CreateEmployeeParams modelToParam(CreateEmployeeRequestModel createEmployeeRequestModel){
+        final CreateEmployeeParams createEmployeeParams = new CreateEmployeeParams();
 
-        employeeParams.setFirstName(employeeCreateRequestModel.getFirstName());
-        employeeParams.setLastName(employeeCreateRequestModel.getLastName());
-        employeeParams.setPassword(employeeCreateRequestModel.getPassword());
-        employeeParams.setUsername(employeeCreateRequestModel.getUsername());
+        createEmployeeParams.setFirstName(createEmployeeRequestModel.getFirstName());
+        createEmployeeParams.setLastName(createEmployeeRequestModel.getLastName());
+        createEmployeeParams.setPassword(createEmployeeRequestModel.getPassword());
+        createEmployeeParams.setUsername(createEmployeeRequestModel.getUsername());
 
-        return employeeParams;
+        return createEmployeeParams;
     }
 }

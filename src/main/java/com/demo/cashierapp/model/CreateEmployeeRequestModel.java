@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
-public class EmployeeCreateRequestModel {
+public class CreateEmployeeRequestModel {
     @JsonProperty
     private String firstName;
     @JsonProperty
