@@ -1,4 +1,4 @@
-package com.demo.cashierapp.helper.employee;
+package com.demo.cashierapp.helper.role;
 
 import com.demo.cashierapp.model.apiService.role.RoleASM;
 import com.demo.cashierapp.model.service.role.RoleSM;

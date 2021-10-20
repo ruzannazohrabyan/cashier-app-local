@@ -2,6 +2,7 @@ package com.demo.cashierapp.service.employee.impl;
 
 import com.demo.cashierapp.entity.Employee;
 import com.demo.cashierapp.helper.employee.MapToCreateEmployeeResponseSM;
+import com.demo.cashierapp.helper.employee.MapToEmployeeDetailsSM;
 import com.demo.cashierapp.model.service.employee.CreateEmployeeRequestSM;
 import com.demo.cashierapp.model.service.employee.CreateEmployeeResponseSM;
 import com.demo.cashierapp.model.service.employee.EmployeeDetailsSM;
@@ -10,6 +11,9 @@ import com.demo.cashierapp.service.employee.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -21,18 +25,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = employeeRepository.findUserByUsername(username);
         return employee != null;
     }
-//
-//    @Override
-//    public CreateEmployeeParamsResponse create(CreateEmployeeParams employee) {
-//        final String salt = BCrypt.gensalt(10);
-//        Employee newEmployee = new Employee();
-//        newEmployee.setFirstName(employee.getFirstName());
-//        newEmployee.setLastName(employee.getLastName());
-//        newEmployee.setUsername(employee.getUsername());
-//        newEmployee.setPassword(BCrypt.hashpw(employee.getPassword(), salt));
-//        return employeeRepository.create(newEmployee);
-//
-//    }
 
     @Override
     public CreateEmployeeResponseSM create(CreateEmployeeRequestSM createEmployeeRequestSM) {
@@ -47,41 +39,28 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public List<EmployeeDetailsSM> getAll() {
+        return employeeRepository.findAll()
+                .stream()
+                .map(employee -> new MapToEmployeeDetailsSM().from(employee))
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public EmployeeDetailsSM getEmployeeByUsername(String username) {
         employeeRepository.findUserByUsername(username);
 
         return null;
     }
 
-//    @Override
-//    public ResponseEntity<Employee> getById(Long id) {
-//        Optional<Employee> user = employeeRepository.findById(id);
-//        if (user.isEmpty()) {
-//            return new ResponseEntity<>(new Employee(), HttpStatus.NOT_FOUND);
-//        }
-//        return new ResponseEntity<>(user.get(), HttpStatus.OK);
-//
-//    }
-//
-//    @Override
-//    public List<Employee> getAll() {
-//        return employeeRepository.findAll();
-//    }
-//
-//    @Override
-//    public void delete(Employee employee) {
-//        employeeRepository.delete(employee);
-//    }
-//
-//    @Override
-//    public void deleteById(Long id) {
-//        employeeRepository.deleteById(id);
-//    }
-//
-//    @Override
-//    public Employee getEmployeeByUsername(String username) {
-//        return employeeRepository.findUserByUsername(username);
-//    }
+    @Override
+    public EmployeeDetailsSM getByUsername(String username) {
+        return null;
+    }
 
+    @Override
+    public void deleteByUsername(String username) {
+
+    }
 
 }

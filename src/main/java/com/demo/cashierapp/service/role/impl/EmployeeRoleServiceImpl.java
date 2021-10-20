@@ -2,8 +2,8 @@ package com.demo.cashierapp.service.role.impl;
 
 import com.demo.cashierapp.entity.EmployeeRole;
 import com.demo.cashierapp.helper.employee.MapToEmployeeEntity;
-import com.demo.cashierapp.helper.employee.MapToEmployeeRoleSM;
-import com.demo.cashierapp.helper.employee.MapToRoleEntity;
+import com.demo.cashierapp.helper.employeeRole.MapToEmployeeRoleSM;
+import com.demo.cashierapp.helper.role.MapToRoleEntity;
 import com.demo.cashierapp.model.service.employeeRole.EmployeeRoleSM;
 import com.demo.cashierapp.model.service.employee.EmployeeDetailsSM;
 import com.demo.cashierapp.model.service.role.RoleSM;

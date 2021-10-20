@@ -3,7 +3,8 @@ package com.demo.cashierapp.apiService.employee.impl;
 import com.demo.cashierapp.apiService.employee.EmployeeApiService;
 import com.demo.cashierapp.helper.employee.MapToCreateEmployeeRequestSM;
 import com.demo.cashierapp.helper.employee.MapToCreateEmployeeResponseASM;
-import com.demo.cashierapp.helper.employee.MapToRoleSM;
+import com.demo.cashierapp.helper.employee.MapToEmployeeDetailsASM;
+import com.demo.cashierapp.helper.role.MapToRoleSM;
 import com.demo.cashierapp.model.apiService.employee.*;
 import com.demo.cashierapp.model.apiService.role.RoleASM;
 import com.demo.cashierapp.model.service.employee.CreateEmployeeResponseSM;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -41,7 +43,10 @@ public class EmployeeApiServiceImpl implements EmployeeApiService {
 
     @Override
     public List<EmployeeDetailsASM> getAll() {
-        return null;
+        return employeeService.getAll()
+                .stream()
+                .map(employeeDetailsSM -> new MapToEmployeeDetailsASM().from(employeeDetailsSM))
+                .collect(Collectors.toList());
     }
 
     @Override

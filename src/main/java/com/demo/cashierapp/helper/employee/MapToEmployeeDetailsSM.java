@@ -3,6 +3,7 @@ package com.demo.cashierapp.helper.employee;
 import com.demo.cashierapp.entity.Employee;
 import com.demo.cashierapp.entity.EmployeeRole;
 import com.demo.cashierapp.entity.Role;
+import com.demo.cashierapp.helper.role.MapToRoleSM;
 import com.demo.cashierapp.model.service.employee.EmployeeDetailsSM;
 import com.demo.cashierapp.model.service.role.RoleSM;
 
