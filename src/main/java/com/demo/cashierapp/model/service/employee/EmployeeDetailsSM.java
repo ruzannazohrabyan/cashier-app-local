@@ -13,6 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class EmployeesDetailsSM extends BaseEmployee {
+public class EmployeeDetailsSM extends BaseEmployee {
     List<RoleSM> roleSMList;
 }

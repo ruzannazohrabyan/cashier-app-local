@@ -1,6 +1,5 @@
 package com.demo.cashierapp.model.apiService.employee;
 
-import com.demo.cashierapp.entity.Role;
 import com.demo.cashierapp.model.BaseEmployee;
 import com.demo.cashierapp.model.apiService.role.RoleASM;
 import lombok.AllArgsConstructor;

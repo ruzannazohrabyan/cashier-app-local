@@ -3,17 +3,16 @@ package com.demo.cashierapp.helper.employee;
 import com.demo.cashierapp.entity.Employee;
 import com.demo.cashierapp.entity.EmployeeRole;
 import com.demo.cashierapp.entity.Role;
-import com.demo.cashierapp.model.service.employee.EmployeesDetailsSM;
+import com.demo.cashierapp.model.service.employee.EmployeeDetailsSM;
 import com.demo.cashierapp.model.service.role.RoleSM;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MapToEmployeeDetailsSM {
 
-    public EmployeesDetailsSM from(Employee employee) {
-        EmployeesDetailsSM model = new EmployeesDetailsSM();
+    public EmployeeDetailsSM from(Employee employee) {
+        EmployeeDetailsSM model = new EmployeeDetailsSM();
         model.setFirstName(employee.getFirstName());
         model.setLastName(employee.getLastName());
         model.setUsername(employee.getUsername());

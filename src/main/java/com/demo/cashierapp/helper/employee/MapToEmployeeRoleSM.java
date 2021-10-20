@@ -1,13 +1,14 @@
 package com.demo.cashierapp.helper.employee;
 
 import com.demo.cashierapp.entity.EmployeeRole;
-import com.demo.cashierapp.model.apiService.employeeRole.EmployeeRoleSM;
+import com.demo.cashierapp.model.service.employeeRole.EmployeeRoleSM;
 
 public class MapToEmployeeRoleSM {
 
-    EmployeeRoleSM from(EmployeeRole employeeRole) {
+    public EmployeeRoleSM from(EmployeeRole employeeRole) {
         EmployeeRoleSM model = new EmployeeRoleSM();
-        model.setEmployeesDetailsSM(new MapToEmployeeDetailsSM().from());
-//        new MapToEmployeeDetailsSM().from(employeeRole.getEmployee())
+        model.setEmployeeDetailsSM(new MapToEmployeeDetailsSM().from(employeeRole.getEmployee()));
+        model.setRoleSM(new MapToRoleSM().from(employeeRole.getRole()));
+        return model;
     }
 }

@@ -6,9 +6,9 @@ import java.util.List;
 public interface EmployeeASM {
     CreateEmployeeResponseASM create(CreateEmployeeRequestASM createEmployeeRequestASM);
 
-    List<EmployeesDetailsASM> getAll();
+    List<EmployeeDetailsASM> getAll();
 
-    EmployeesDetailsASM getByUsername(String username);
+    EmployeeDetailsASM getByUsername(String username);
 
     void deleteByUsername(String username);
 

@@ -1,23 +1,17 @@
 package com.demo.cashierapp.service.role.impl;
 
-import com.demo.cashierapp.entity.Employee;
 import com.demo.cashierapp.entity.EmployeeRole;
-import com.demo.cashierapp.entity.Role;
 import com.demo.cashierapp.helper.employee.MapToEmployeeEntity;
+import com.demo.cashierapp.helper.employee.MapToEmployeeRoleSM;
 import com.demo.cashierapp.helper.employee.MapToRoleEntity;
-import com.demo.cashierapp.model.apiService.employeeRole.EmployeeRoleSM;
-import com.demo.cashierapp.model.service.employee.EmployeesDetailsSM;
+import com.demo.cashierapp.model.service.employeeRole.EmployeeRoleSM;
+import com.demo.cashierapp.model.service.employee.EmployeeDetailsSM;
 import com.demo.cashierapp.model.service.role.RoleSM;
 import com.demo.cashierapp.repository.EmployeeRoleRepository;
 import com.demo.cashierapp.service.employee.EmployeeService;
 import com.demo.cashierapp.service.role.EmployeeRoleService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -27,11 +21,12 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
 
     @Override
     public EmployeeRoleSM assign(String username, RoleSM roleSM) {
-        final EmployeesDetailsSM model = employeeService.getEmployeeByUsername(username);
+        final EmployeeDetailsSM model = employeeService.getEmployeeByUsername(username);
         final EmployeeRole employeeRole = new EmployeeRole();
         employeeRole.setEmployee(new MapToEmployeeEntity().from(model));
         employeeRole.setRole(new MapToRoleEntity().from(roleSM));
-        final EmployeeRoleSM savedEmployeeRole = employeeRoleRepository.save(new employeeRole);
+
+        final EmployeeRoleSM savedEmployeeRole = new MapToEmployeeRoleSM().from(employeeRoleRepository.save(employeeRole));
         return savedEmployeeRole;
     }
 

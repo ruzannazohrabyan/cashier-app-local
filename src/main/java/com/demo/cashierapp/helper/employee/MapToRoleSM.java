@@ -9,7 +9,6 @@ public class MapToRoleSM {
     public RoleSM from(RoleASM roleASM) {
         RoleSM roleSM = new RoleSM();
         roleSM.setRoleName(roleASM.getRoleName());
-
         return roleSM;
     }
 

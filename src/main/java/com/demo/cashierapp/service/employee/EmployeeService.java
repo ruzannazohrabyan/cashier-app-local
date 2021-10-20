@@ -1,11 +1,8 @@
 package com.demo.cashierapp.service.employee;
 
-import com.demo.cashierapp.model.CreateEmployeeParams;
-import com.demo.cashierapp.model.CreateEmployeeParamsResponse;
-import com.demo.cashierapp.model.apiService.employee.CreateEmployeeResponseASM;
 import com.demo.cashierapp.model.service.employee.CreateEmployeeRequestSM;
 import com.demo.cashierapp.model.service.employee.CreateEmployeeResponseSM;
-import com.demo.cashierapp.model.service.employee.EmployeesDetailsSM;
+import com.demo.cashierapp.model.service.employee.EmployeeDetailsSM;
 
 public interface EmployeeService {
     CreateEmployeeResponseSM create(CreateEmployeeRequestSM createEmployeeRequestSM);
@@ -18,7 +15,7 @@ public interface EmployeeService {
 //
 //    void deleteById(Long id);
 //
-    EmployeesDetailsSM getEmployeeByUsername(String username);
+    EmployeeDetailsSM getEmployeeByUsername(String username);
 //
 //    boolean isUsernameExists(String username);
 }

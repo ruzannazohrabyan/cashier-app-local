@@ -4,7 +4,7 @@ import com.demo.cashierapp.entity.Employee;
 import com.demo.cashierapp.helper.employee.MapToCreateEmployeeResponseSM;
 import com.demo.cashierapp.model.service.employee.CreateEmployeeRequestSM;
 import com.demo.cashierapp.model.service.employee.CreateEmployeeResponseSM;
-import com.demo.cashierapp.model.service.employee.EmployeesDetailsSM;
+import com.demo.cashierapp.model.service.employee.EmployeeDetailsSM;
 import com.demo.cashierapp.repository.EmployeeRepository;
 import com.demo.cashierapp.service.employee.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -47,7 +47,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public EmployeesDetailsSM getEmployeeByUsername(String username) {
+    public EmployeeDetailsSM getEmployeeByUsername(String username) {
         employeeRepository.findUserByUsername(username);
 
         return null;

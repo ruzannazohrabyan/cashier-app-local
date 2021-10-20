@@ -1,6 +1,6 @@
-package com.demo.cashierapp.model.apiService.employeeRole;
+package com.demo.cashierapp.model.service.employeeRole;
 
-import com.demo.cashierapp.model.service.employee.EmployeesDetailsSM;
+import com.demo.cashierapp.model.service.employee.EmployeeDetailsSM;
 import com.demo.cashierapp.model.service.role.RoleSM;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +12,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EmployeeRoleSM {
-    private EmployeesDetailsSM employeesDetailsSM;
+    private EmployeeDetailsSM employeeDetailsSM;
     private RoleSM roleSM;
 }
