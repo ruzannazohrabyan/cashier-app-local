@@ -7,7 +7,7 @@ public class MapToEmployeeRoleSM {
 
     EmployeeRoleSM from(EmployeeRole employeeRole) {
         EmployeeRoleSM model = new EmployeeRoleSM();
-        model.setEmployeesDetailsSM();
+        model.setEmployeesDetailsSM(new MapToEmployeeDetailsSM().from());
 //        new MapToEmployeeDetailsSM().from(employeeRole.getEmployee())
     }
 }
