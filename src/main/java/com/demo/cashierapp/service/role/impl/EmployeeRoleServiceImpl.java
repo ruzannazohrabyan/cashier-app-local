@@ -31,7 +31,7 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
         final EmployeeRole employeeRole = new EmployeeRole();
         employeeRole.setEmployee(new MapToEmployeeEntity().from(model));
         employeeRole.setRole(new MapToRoleEntity().from(roleSM));
-        final EmployeeRoleSM savedEmployeeRole = employeeRoleRepository.save(employeeRole);
+        final EmployeeRoleSM savedEmployeeRole = employeeRoleRepository.save(new employeeRole);
         return savedEmployeeRole;
     }
 

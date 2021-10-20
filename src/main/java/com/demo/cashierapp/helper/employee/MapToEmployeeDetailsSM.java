@@ -22,5 +22,7 @@ public class MapToEmployeeDetailsSM {
             Role role = employeeRole.getRole();
             roleSMList.add(new MapToRoleSM().from(role));
         }
+        model.setRoleSMList(roleSMList);
+        return model;
     }
 }
