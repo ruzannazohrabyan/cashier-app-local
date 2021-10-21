@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     Employee findUserByUsername(String username);
+
+    Employee deleteUserByUsername(String username);
 }

@@ -48,9 +48,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeDetailsSM getEmployeeByUsername(String username) {
-        employeeRepository.findUserByUsername(username);
+        Employee employee=employeeRepository.findUserByUsername(username);
+        EmployeeDetailsSM employeeDetailsSM = new MapToEmployeeDetailsSM().from(employee);
 
-        return null;
+        return employeeDetailsSM;
     }
 
     @Override
@@ -60,6 +61,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void deleteByUsername(String username) {
+        Employee employee = employeeRepository.deleteUserByUsername(username);
+        EmployeeDetailsSM employeeDetailsSM = new MapToEmployeeDetailsSM().from(employee);
 
     }
 

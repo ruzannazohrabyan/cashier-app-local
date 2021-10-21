@@ -4,12 +4,15 @@ import com.demo.cashierapp.apiService.employee.EmployeeApiService;
 import com.demo.cashierapp.helper.employee.MapToCreateEmployeeRequestSM;
 import com.demo.cashierapp.helper.employee.MapToCreateEmployeeResponseASM;
 import com.demo.cashierapp.helper.employee.MapToEmployeeDetailsASM;
+import com.demo.cashierapp.helper.employee.MapToEmployeeDetailsSM;
 import com.demo.cashierapp.helper.role.MapToRoleSM;
 import com.demo.cashierapp.model.apiService.employee.*;
 import com.demo.cashierapp.model.apiService.role.RoleASM;
 import com.demo.cashierapp.model.service.employee.CreateEmployeeResponseSM;
+import com.demo.cashierapp.model.service.employee.EmployeeDetailsSM;
 import com.demo.cashierapp.model.service.employeeRole.EmployeeRoleSM;
 import com.demo.cashierapp.model.service.role.RoleSM;
+import com.demo.cashierapp.repository.EmployeeRepository;
 import com.demo.cashierapp.service.employee.EmployeeService;
 import com.demo.cashierapp.service.role.EmployeeRoleService;
 import lombok.RequiredArgsConstructor;
@@ -51,12 +54,13 @@ public class EmployeeApiServiceImpl implements EmployeeApiService {
 
     @Override
     public EmployeeDetailsASM getByUsername(String username) {
-        return null;
+        return  new MapToEmployeeDetailsASM().from(employeeService.getByUsername(username));
+
     }
 
     @Override
     public void deleteByUsername(String username) {
-
+        employeeService.deleteByUsername(username);
     }
 
     @Override
