@@ -16,7 +16,7 @@ import java.util.List;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq_gen")
-    @SequenceGenerator(name = "employee_seq_gen", sequenceName = "employee_id_seq")
+    @SequenceGenerator(name = "employee_seq_gen", sequenceName = "employee_id_seq", allocationSize = 1)
     private Long id;
 
     @Column(name = "first_name")
@@ -31,6 +31,6 @@ public class Employee {
     @Column(name = "password")
     private String password;
 
-    @OneToMany
+    @OneToMany(mappedBy = "employee")
     private List<EmployeeRole> roles;
 }

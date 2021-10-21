@@ -7,21 +7,24 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table(name = "employee_role")
 public class EmployeeRole {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_role_seq_gen")
-    @SequenceGenerator(name = "employee_role_seq_gen", sequenceName = "employee_role_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EMPLOYEE_ROLE_SEQ_GEN")
+    @SequenceGenerator(name = "EMPLOYEE_ROLE_SEQ_GEN", sequenceName = "EMPLOYEE_ROLE_ID_SEQ", allocationSize = 1)
     private Long id;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "role")
     private Role role;
 
     @ManyToOne
-    @JoinColumn(name = "username")
+    @JoinColumn(name = "employee_id", foreignKey = @ForeignKey(name = "FK_EMPLOYEE_ROLE_ID"))
     private Employee employee;
 }

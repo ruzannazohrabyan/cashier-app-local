@@ -1,15 +1,19 @@
 package com.demo.cashierapp.service.role;
 
-import com.demo.cashierapp.model.service.employeeRole.EmployeeRoleSM;
-import com.demo.cashierapp.model.service.role.RoleSM;
+import com.demo.cashierapp.entity.EmployeeRole;
+import com.demo.cashierapp.entity.Role;
+
+import java.util.List;
 
 
 public interface EmployeeRoleService {
-    EmployeeRoleSM assign(String username, RoleSM roleSM);
+    EmployeeRole assign(String username, Role role);
 
-//    ResponseEntity<EmployeeRole> getById(Long id);
+    List<Role> getAllRolesByUsername(String username);
+
+    //    ResponseEntity<EmployeeRole> getById(Long id);
 //
-//    List<EmployeeRole> getAll();
+    List<EmployeeRole> getAllEmployeeRolesByUsername(String username);
 //
 //    void delete(EmployeeRole employeeRole);
 //

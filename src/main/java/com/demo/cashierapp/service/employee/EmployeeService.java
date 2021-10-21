@@ -1,24 +1,21 @@
 package com.demo.cashierapp.service.employee;
 
-import com.demo.cashierapp.model.apiService.employee.EditEmployeeRequestASM;
-import com.demo.cashierapp.model.apiService.employee.EditEmployeeResponseASM;
-import com.demo.cashierapp.model.apiService.employee.EmployeeDetailsASM;
-import com.demo.cashierapp.model.service.employee.CreateEmployeeRequestSM;
-import com.demo.cashierapp.model.service.employee.CreateEmployeeResponseSM;
-import com.demo.cashierapp.model.service.employee.EmployeeDetailsSM;
+import com.demo.cashierapp.entity.Employee;
+import com.demo.cashierapp.model.service.employee.CreateEmployeeParams;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface EmployeeService {
-    CreateEmployeeResponseSM create(CreateEmployeeRequestSM createEmployeeRequestSM);
+    Employee create(CreateEmployeeParams createEmployeeParams);
 
-    List<EmployeeDetailsSM> getAll();
+    List<Employee> getAll();
 
-    EmployeeDetailsSM getEmployeeByUsername(String username);
+    Optional<Employee> getEmployeeByUsername(String username);
 
-    EmployeeDetailsSM getByUsername(String username);
+    boolean isUsernameExist(String username);
 
     void deleteByUsername(String username);
 
-//    EditEmployeeResponseSM edit(EditEmployeeRequestASM editEmployeeRequestASM);
+
 }
