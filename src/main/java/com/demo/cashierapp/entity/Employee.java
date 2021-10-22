@@ -16,8 +16,8 @@ import java.util.List;
 @ToString
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq_gen")
-    @SequenceGenerator(name = "employee_seq_gen", sequenceName = "employee_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EMPLOYEE_SEQ_GEN")
+    @SequenceGenerator(name = "EMPLOYEE_SEQ_GEN", sequenceName = "EMPLOYEE_ID_SEQ", allocationSize = 1)
     private Long id;
 
     @Column(name = "first_name")
