@@ -24,7 +24,7 @@ public class EmployeeRole {
     private Role role;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id", foreignKey = @ForeignKey(name = "FK_EMPLOYEE_ROLE_ID"))
+    @JoinColumn(name = "employee_id", foreignKey = @ForeignKey(name = "FK_EMPLOYEE_ID"))
     private Employee employee;
 
     @Override

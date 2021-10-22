@@ -3,6 +3,7 @@ package com.demo.cashierapp.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "product")
@@ -16,4 +17,25 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PRODUCT_SEQ_GEN")
     @SequenceGenerator(name = "PRODUCT_SEQ_GEN", sequenceName = "PRODUCT_ID_SEQ", allocationSize = 1)
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "supplier_id", foreignKey = @ForeignKey(name = "FK_SUPPLIER_ID"))
+    private Supplier supplier;
+    @Column(name = "brand", columnDefinition = "undefined")
+    private String brand;
+
+    @Column(name = "barcode", unique = true, nullable = false)
+    private String barcode;
+    @Column(name = "product_name")
+    private String productName;
+    @Column(name = "product_description")
+    private String productDescription;
+    @Column(name = "quantity")
+    private int quantity;
+    @Column(name = "unit_of_measurement")
+    private String unitOfMeasurement;
+    @Column(name = "cost_price")
+    private BigDecimal costPrice;
+    @Column(name = "sale_price")
+    private BigDecimal salePrice;
 }
