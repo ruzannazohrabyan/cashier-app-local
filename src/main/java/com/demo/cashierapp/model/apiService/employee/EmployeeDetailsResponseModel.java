@@ -1,7 +1,6 @@
 package com.demo.cashierapp.model.apiService.employee;
 
 import com.demo.cashierapp.entity.Role;
-import com.demo.cashierapp.model.BaseEmployee;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

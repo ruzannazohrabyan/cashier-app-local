@@ -1,4 +1,4 @@
-package com.demo.cashierapp.model;
+package com.demo.cashierapp.model.apiService.employee;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

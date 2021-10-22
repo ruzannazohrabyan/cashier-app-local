@@ -1,6 +1,8 @@
 package com.demo.cashierapp.entity;
 
 import lombok.*;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -38,4 +40,40 @@ public class Product {
     private BigDecimal costPrice;
     @Column(name = "sale_price")
     private BigDecimal salePrice;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        return new EqualsBuilder()
+                .append(getQuantity(), product.getQuantity())
+                .append(getSupplier(), product.getSupplier())
+                .append(getBrand(), product.getBrand())
+                .append(getBarcode(), product.getBarcode())
+                .append(getProductName(), product.getProductName())
+                .append(getProductDescription(), product.getProductDescription())
+                .append(getUnitOfMeasurement(), product.getUnitOfMeasurement())
+                .append(getCostPrice(), product.getCostPrice())
+                .append(getSalePrice(), product.getSalePrice())
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(getSupplier())
+                .append(getBrand())
+                .append(getBarcode())
+                .append(getProductName())
+                .append(getProductDescription())
+                .append(getQuantity())
+                .append(getUnitOfMeasurement())
+                .append(getCostPrice())
+                .append(getSalePrice())
+                .toHashCode();
+    }
 }
