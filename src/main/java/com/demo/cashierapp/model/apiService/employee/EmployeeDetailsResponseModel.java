@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class EmployeeDetailsModel extends BaseEmployee {
+public class EmployeeDetailsResponseModel extends BaseEmployee {
     @JsonProperty("roles")
      List<Role> roleList;
 

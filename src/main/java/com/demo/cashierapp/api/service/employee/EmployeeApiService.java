@@ -4,13 +4,13 @@ import com.demo.cashierapp.model.apiService.employee.*;
 import java.util.List;
 
 public interface EmployeeApiService {
-    CreateEmployeeResponseModel create(CreateEmployeeRequestModel createEmployeeRequestModel);
+    EmployeeDetailsResponseModel create(CreateEmployeeRequestModel createEmployeeRequestModel);
 
-    List<EmployeeDetailsModel> getAll();
+    List<EmployeeDetailsResponseModel> getAll();
 
-    EmployeeDetailsModel getByUsername(String username);
+    EmployeeDetailsResponseModel getByUsername(String username);
 
     void deleteByUsername(String username);
 
-    EditEmployeeResponseModel edit(EditEmployeeRequestModel editEmployeeRequestModel);
+    EmployeeDetailsResponseModel update(UpdateEmployeeRequestModel updateEmployeeRequestModel);
 }

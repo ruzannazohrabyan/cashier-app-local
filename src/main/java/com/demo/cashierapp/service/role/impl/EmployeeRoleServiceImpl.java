@@ -21,12 +21,9 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
 
     @Override
     public EmployeeRole assign(String username, Role role) {
-        final Optional<Employee> entity = employeeService.getEmployeeByUsername(username);
-        if (entity.isEmpty()) {
-            throw new IllegalArgumentException("Employee does not exist");
-        }
+        final Employee employee = employeeService.getEmployeeByUsername(username);
         final EmployeeRole employeeRole = new EmployeeRole();
-        employeeRole.setEmployee(entity.get());
+        employeeRole.setEmployee(employee);
         employeeRole.setRole(role);
         return employeeRoleRepository.save(employeeRole);
     }
@@ -34,8 +31,7 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
     @Override
     public List<Role> getAllRolesByUsername(String username) {
         final List<EmployeeRole> employeeRoles = employeeRoleRepository.findAllByEmployee_Username(username);
-        final List<Role> roles = employeeRoles.stream().map(EmployeeRole::getRole).collect(Collectors.toList());
-        return roles;
+        return employeeRoles.stream().map(EmployeeRole::getRole).collect(Collectors.toList());
     }
 
     @Override

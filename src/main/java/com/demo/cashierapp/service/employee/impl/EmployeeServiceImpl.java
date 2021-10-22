@@ -18,8 +18,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
 
     @Override
-    public boolean isUsernameExist(String username) {
-        Optional<Employee> employeeOptional = getEmployeeByUsername(username);
+    public boolean usernameExists(String username) {
+        Optional<Employee> employeeOptional = employeeRepository.findEmployeeByUsername(username);
         return employeeOptional.isPresent();
     }
 
@@ -40,9 +40,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Optional<Employee> getEmployeeByUsername(String username) {
-        Employee employee = employeeRepository.findUserByUsername(username);
-        return Optional.of(employee);
+    public Employee getEmployeeByUsername(String username) {
+        final Optional<Employee> entity = employeeRepository.findEmployeeByUsername(username);
+        if (entity.isEmpty()) {
+            throw new IllegalArgumentException("Employee does not exist");
+        }
+        return entity.get();
     }
 
     @Override

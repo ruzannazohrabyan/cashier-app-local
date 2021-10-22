@@ -48,7 +48,6 @@ public class Employee {
                 .append(getLastName(), employee.getLastName())
                 .append(getUsername(), employee.getUsername())
                 .append(getPassword(), employee.getPassword())
-                .append(getRoles(), employee.getRoles())
                 .isEquals();
     }
 
@@ -59,7 +58,6 @@ public class Employee {
                 .append(getLastName())
                 .append(getUsername())
                 .append(getPassword())
-                .append(getRoles())
                 .toHashCode();
     }
 }

@@ -1,5 +1,6 @@
 package com.demo.cashierapp.api.service.employee.impl;
 
+import com.demo.cashierapp.api.service.EmployeeDetailsResponseModelBuilder;
 import com.demo.cashierapp.api.service.employee.EmployeeApiService;
 import com.demo.cashierapp.entity.Employee;
 import com.demo.cashierapp.entity.EmployeeRole;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -20,9 +22,10 @@ public class EmployeeApiServiceImpl implements EmployeeApiService {
     private final EmployeeService employeeService;
     private final EmployeeRoleService employeeRoleService;
     private final MapperEmployee mapperEmployee;
+    private final EmployeeDetailsResponseModelBuilder employeeDetailsBuilder;
 
     @Override
-    public CreateEmployeeResponseModel create(CreateEmployeeRequestModel createEmployeeRequestModel) {
+    public EmployeeDetailsResponseModel create(CreateEmployeeRequestModel createEmployeeRequestModel) {
         final Employee savedEmployee = employeeService.create(
                 mapperEmployee.mapToCreateEmployeeParams(createEmployeeRequestModel)
         );
@@ -34,23 +37,19 @@ public class EmployeeApiServiceImpl implements EmployeeApiService {
             );
         }
         savedEmployee.setRoles(employeeRoles);
-        final List<Role> roles = employeeRoleService.getAllRolesByUsername(savedEmployee.getUsername());
-        return mapperEmployee.mapToCreateEmployeeResponse(savedEmployee, roles);
+        return employeeDetailsBuilder.build(savedEmployee.getUsername());
     }
 
     @Override
-    public List<EmployeeDetailsModel> getAll() {
-        final List<EmployeeDetailsModel> detailsModelList = new ArrayList<>();
+    public List<EmployeeDetailsResponseModel> getAll() {
         final List<Employee> employees = employeeService.getAll();
-        for(Employee employee : employees) {
-            final List<Role> roles = employeeRoleService.getAllRolesByUsername(employee.getUsername());
-            detailsModelList.add(mapperEmployee.mapToEmployeeDetailsModel(employee, roles));
-        }
-        return detailsModelList;
+        return employees.stream()
+                .map(employee -> employeeDetailsBuilder.build(employee.getUsername()))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public EmployeeDetailsModel getByUsername(String username) {
+    public EmployeeDetailsResponseModel getByUsername(String username) {
         return null;
 
     }
@@ -61,7 +60,7 @@ public class EmployeeApiServiceImpl implements EmployeeApiService {
     }
 
     @Override
-    public EditEmployeeResponseModel edit(EditEmployeeRequestModel editEmployeeRequestModel) {
+    public EmployeeDetailsResponseModel update(UpdateEmployeeRequestModel updateEmployeeRequestModel) {
         return null;
     }
 }

@@ -1,7 +1,6 @@
 package com.demo.cashierapp.repository;
 
 import com.demo.cashierapp.entity.EmployeeRole;
-import com.demo.cashierapp.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
