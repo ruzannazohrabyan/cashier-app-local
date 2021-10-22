@@ -23,7 +23,9 @@ public class EmployeeApiServiceImpl implements EmployeeApiService {
 
     @Override
     public CreateEmployeeResponseModel create(CreateEmployeeRequestModel createEmployeeRequestModel) {
-        final Employee savedEmployee = employeeService.create(mapperEmployee.mapToCreateEmployeeParams(createEmployeeRequestModel));
+        final Employee savedEmployee = employeeService.create(
+                mapperEmployee.mapToCreateEmployeeParams(createEmployeeRequestModel)
+        );
 
         List<EmployeeRole> employeeRoles = new ArrayList<>();
         for (Role role : createEmployeeRequestModel.getRoles()) {

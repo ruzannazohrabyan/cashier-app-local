@@ -1,18 +1,19 @@
 package com.demo.cashierapp.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "employee")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq_gen")
@@ -33,4 +34,32 @@ public class Employee {
 
     @OneToMany(mappedBy = "employee")
     private List<EmployeeRole> roles;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Employee employee = (Employee) o;
+
+        return new EqualsBuilder()
+                .append(getFirstName(), employee.getFirstName())
+                .append(getLastName(), employee.getLastName())
+                .append(getUsername(), employee.getUsername())
+                .append(getPassword(), employee.getPassword())
+                .append(getRoles(), employee.getRoles())
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(getFirstName())
+                .append(getLastName())
+                .append(getUsername())
+                .append(getPassword())
+                .append(getRoles())
+                .toHashCode();
+    }
 }
